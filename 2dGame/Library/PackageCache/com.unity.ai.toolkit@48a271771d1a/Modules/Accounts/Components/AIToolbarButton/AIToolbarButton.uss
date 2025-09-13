@@ -1,0 +1,23 @@
+:root {
+    --ai-toolbar-button-notification-background-color: #FFF;
+    --ai-toolbar-button-notification-text-color: #000;
+}
+
+.unity-toolbar-button.ai-toolbar-button {
+    transition-property: color, background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+}
+
+.unity-toolbar-button.ai-toolbar-button--with-points-notifications {
+    background-color: var(--ai-toolbar-button-notification-background-color);
+    color: var(--ai-toolbar-button-notification-text-color);
+}
+
+.unity-toolbar-button.ai-toolbar-button--with-points-notifications > .unity-image {
+    --unity-image-tint-color: var(--ai-toolbar-button-notification-text-color);
+}
+
+.unity-toolbar-button.ai-toolbar-button--with-points-notifications > .unity-icon-arrow {
+    -unity-background-image-tint-color: var(--ai-toolbar-button-notification-text-color);
+}

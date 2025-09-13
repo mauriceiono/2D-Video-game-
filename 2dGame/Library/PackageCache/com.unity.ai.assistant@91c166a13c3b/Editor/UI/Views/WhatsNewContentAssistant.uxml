@@ -1,0 +1,59 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"
+         xmlns:chat="Unity.AI.Assistant.Editor.SessionBanner"
+         xmlns="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:VisualElement class="mui-whats-new-page-root">
+        <ui:VisualElement name="page1" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page1Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Meet Assistant" class="mui-whats-new-page-header"/>
+            <ui:Label text="Assistant is designed to enhance your workflows and boost productivity. Use the &lt;b&gt;/ask&lt;/b&gt; command to answer project-specific questions, and try the new &lt;b&gt;/run&lt;/b&gt; and &lt;b&gt;/code&lt;/b&gt; commands that are in preview to automate repetitive tasks and generate pre-compiled code."
+                      class="mui-whats-new-page-text"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="page2" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page2Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Your go-to problem solver" class="mui-whats-new-page-header"/>
+            <ui:Label text="Get personalized guidance for Unity project-specific challenges and questions with the default &lt;b&gt;/ask&lt;/b&gt; command. Debug errors, learn new workflows, and solve complex problems."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-list">
+                <ui:Label text="Why am I getting this console error?" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+                <ui:Label text="How can I bake a NavMesh on my scene?" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+                <ui:Label text="How do I install the Device Simulator?" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="page3" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page3Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Automate repetitive tasks with /run" class="mui-whats-new-page-header"/>
+            <ui:Label text="Use natural language to automate tedious tasks and streamline your workflow. The &lt;b&gt;/run&lt;/b&gt; command handles scene setup, lighting adjustments, asset renaming, and more."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-list">
+                <ui:Label text="Remove all colliders from the scene" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+                <ui:Label text="Find objects with a missing script component in the scene" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+                <ui:Label text="Select the mesh with the largest number of triangles in the scene" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="page4" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page4Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Speed up scripting with /code" class="mui-whats-new-page-header"/>
+            <ui:Label text="Reduce the time and effort required to structure gameplay mechanics by using the &lt;b&gt;/code&lt;/b&gt; command to write basic scripts, allowing you to focus on other aspects of game development."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-list">
+                <ui:Label text="Rewrite this script so it runs faster and uses less memory" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+                <ui:Label text="Read this script and fix potential issues or bugs" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+                <ui:Label text="Make this code easier to read, and report back if any names, functions or classes were renamed" class="mui-whats-new-page-list-entry mui-whats-new-page-sample-text"/>
+            </ui:VisualElement>
+
+            <ui:Button name="openAssistantButton" class="mui-whats-new-page-action-button">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Open Assistant"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+        </ui:VisualElement>
+
+        <ui:VisualElement class="mui-whats-new-page-controls">
+            <ui:Button name="pageControlBack" class="mui-whats-new-page-control-button"/>
+            <ui:Label name="pageControlLabel" class="mui-whats-new-page-control-label"/>
+            <ui:Button name="pageControlNext" class="mui-whats-new-page-control-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
