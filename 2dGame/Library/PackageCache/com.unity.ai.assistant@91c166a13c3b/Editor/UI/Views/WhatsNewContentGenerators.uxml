@@ -1,0 +1,96 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"
+         xmlns:chat="Unity.AI.Assistant.Editor.SessionBanner"
+         xmlns="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:VisualElement class="mui-whats-new-page-root">
+        <ui:VisualElement name="page1" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page1Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Generate assets for Unity" class="mui-whats-new-page-header"/>
+            <ui:Label text="With Generators, you can create assets for your production in one place. Access Generators from the &lt;b&gt;Assets &gt; Create&lt;/b&gt; window menu or from the AI menu."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-paragraph"/>
+            <ui:Label text="After generation, you can further refine your creations using AI-based tools or Unity Editor’s built-in asset inspectors and adjustments."
+                      class="mui-whats-new-page-text"/>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="page2" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page2Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Material Generator" class="mui-whats-new-page-header"/>
+            <ui:Label text="Use text prompts to create and customize realistic materials for your Unity projects. You can generate materials with unique textures, patterns, and properties."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-paragraph"/>
+            <ui:Label text="Easily integrate your generated materials into your scenes to enhance visual quality and accelerate development."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-paragraph"/>
+            <ui:Label text="Access the Material Generator from the AI menu."
+                      class="mui-whats-new-page-text"/>
+            <ui:Button name="generateMaterialButton" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Generate Material"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+            <ui:Button name="installGeneratorsPage2" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Install Generators"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="page3" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page3Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Sprite Generator" class="mui-whats-new-page-header"/>
+            <ui:Label text="Generate sprites using various AI model styles for specific assets, such as props, characters, or icons. Refinements integrated into the Sprite Editor include upscale, recolor, pixelate, and remove background."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-paragraph"/>
+            <ui:Label text="Access the Sprite Generator from the AI menu."
+                      class="mui-whats-new-page-text"/>
+            <ui:Button name="generateSpriteButton" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Generate Sprite"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+            <ui:Button name="installGeneratorsPage3" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Install Generators"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="page4" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page4Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Animation Generator" class="mui-whats-new-page-header"/>
+            <ui:Label text="Generate humanoid character animation clips from text or video references that can be rigged to your character."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-paragraph"/>
+            <ui:Label text="Access the Animation Generator from the AI menu."
+                      class="mui-whats-new-page-text"/>
+            <ui:Button name="generateAnimationButton" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Generate Animation"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+            <ui:Button name="installGeneratorsPage4" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Install Generators"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="page5" class="mui-whats-new-page-section">
+            <ui:VisualElement name="page5Video" class="mui-whats-new-page-video-element"/>
+            <ui:Label text="Audio Generator" class="mui-whats-new-page-header"/>
+            <ui:Label text="Generate audio effects using both text and audio prompts. Audio prompts use sound intensity as a reference sound profile. Refinements include clipping and audio envelope tool."
+                      class="mui-whats-new-page-text"/>
+            <ui:VisualElement class="mui-whats-new-page-paragraph"/>
+            <ui:Label text="Access the Audio Generator from the AI menu."
+                      class="mui-whats-new-page-text"/>
+            <ui:Button name="generateAudioButton" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Generate Audio"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+            <ui:Button name="installGeneratorsPage5" class="mui-whats-new-page-action-button" style="display: none;">
+                <ui:Label picking-mode="ignore" class="mui-chat-label" text="Install Generators"/>
+                <ui:Image picking-mode="ignore" class="mui-action-button-image-large mui-icon-arrow-square-in mui-whats-new-page-action-button-image"/>
+            </ui:Button>
+        </ui:VisualElement>
+
+        <ui:VisualElement class="mui-whats-new-page-controls">
+            <ui:Button name="pageControlBack" class="mui-whats-new-page-control-button"/>
+            <ui:Label name="pageControlLabel" class="mui-whats-new-page-control-label"/>
+            <ui:Button name="pageControlNext" class="mui-whats-new-page-control-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

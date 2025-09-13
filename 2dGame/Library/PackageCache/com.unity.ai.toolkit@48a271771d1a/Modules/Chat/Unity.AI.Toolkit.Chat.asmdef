@@ -1,0 +1,24 @@
+{
+    "name": "Unity.AI.Toolkit.Chat",
+    "rootNamespace": "Unity.AI.Toolkit.Chat",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_AI_OPEN_BETA"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.ai.toolkit",
+            "expression": "[0,1.0.0)",
+            "define": "UNITY_AI_OPEN_BETA"
+        }
+    ],
+    "noEngineReferences": false
+}
