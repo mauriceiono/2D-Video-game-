@@ -10,9 +10,12 @@ public class PlayerMovement2D : MonoBehaviour
     private Vector2 movementInput;
     private Camera mainCamera;
 
+    public float attackTimer;
+
     //Activates on initialization
     private void Awake()
     {
+        attackTimer = 0f;
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -25,7 +28,18 @@ public class PlayerMovement2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        //Attack timer countdown
+        if (attackTimer <= 0f)
+        {
+            //Ready to attack
+            SetAttackSpeed(100f);
+            Object friendlyprojectile = Resources.Load("Projectiles/FriendlyProjectileBasic");
+            attack(friendlyprojectile);
+        }
+        else
+        {
+            attackTimer -= 1f;
+        }
     }
 
     //Gets the current position of the player in world coordinates.
@@ -45,6 +59,7 @@ public class PlayerMovement2D : MonoBehaviour
         rb.MovePosition(newPosition);
     }
 
+
     //Player movement function
     public void playerMoving()
     {
@@ -56,5 +71,21 @@ public class PlayerMovement2D : MonoBehaviour
 
         //Move the player to the world position of the mouse cursor
         SetPlayerPosition(worldPos);
+    }
+
+    public void SetAttackSpeed(float newSpeed)
+    {
+        attackTimer = newSpeed;
+    }
+
+    public float GetAttackSpeed()
+    {
+        return attackTimer;
+    }
+
+    public void attack(Object projectileType)
+    {
+        //Spawn projectile
+        Instantiate(projectileType);
     }
 }
