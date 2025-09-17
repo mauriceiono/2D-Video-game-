@@ -85,7 +85,12 @@ public class PlayerMovement2D : MonoBehaviour
 
     public void attack(Object projectileType)
     {
-        //Spawn projectile
-        Instantiate(projectileType);
+        // Offset distance in front of the player
+    float spawnOffset = 0.5f; // change if needed
+    Vector3 spawnPosition = transform.position + transform.up * spawnOffset;
+
+    // Spawn projectile at the offset position, spawn projectile in front of player model 
+    GameObject projectile = Instantiate(projectileType, spawnPosition, transform.rotation) as GameObject;
+
     }
 }
