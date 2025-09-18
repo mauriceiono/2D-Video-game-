@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(health);
+        //Debug.Log(health);
     }
     private void FixedUpdate()
     {
