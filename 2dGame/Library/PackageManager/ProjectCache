@@ -329,10 +329,12 @@ m_ResolvedPackages:
     - 1.2.5
     - 2.0.0
     - 2.0.1
+    - 2.0.2
     - 3.0.0
     compatible:
     - 2.0.1
-    recommended: 2.0.1
+    - 2.0.2
+    recommended: 2.0.2
     deprecated: []
   dependencies:
   - name: com.unity.2d.common
@@ -450,6 +452,7 @@ m_ResolvedPackages:
   versions:
     all:
     - 1.0.0-pre.1
+    - 1.0.0-pre.2
     - 1.0.0
     compatible:
     - 1.0.0-pre.1
@@ -1373,7 +1376,7 @@ m_ResolvedPackages:
     - 1.0.0-pre.10
     - 1.0.0-pre.11
     - 1.0.0-pre.12
-    recommended: 1.0.0-pre.12
+    recommended: 
     deprecated: []
   dependencies:
   - name: com.unity.ai.toolkit
@@ -1438,7 +1441,7 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 
     nextVersion: 1.0.0-pre.7
-    recommendedVersion: 1.0.0-pre.5
+    recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
     isDiscoverable: 1
@@ -1520,7 +1523,7 @@ m_ResolvedPackages:
     - 1.0.0-pre.18
     - 1.0.0-pre.19
     - 1.0.0-pre.20
-    recommended: 1.0.0-pre.20
+    recommended: 
     deprecated: []
   dependencies:
   - name: com.unity.ai.toolkit
@@ -1563,7 +1566,7 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 
     nextVersion: 1.0.0-pre.8
-    recommendedVersion: 1.0.0-pre.8
+    recommendedVersion: 
     isDeprecated: 0
     deprecationMessage: 
     isDiscoverable: 1
