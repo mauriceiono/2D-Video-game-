@@ -1,0 +1,5 @@
+-Added a global functions script
+--The global manager didn't behave as expected, but I left it there just in case.
+
+-Added a new enemy
+--It will constantly chase the player at a slow speed.
