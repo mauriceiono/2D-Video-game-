@@ -1,5 +1,3 @@
--Added a global functions script
---The global manager didn't behave as expected, but I left it there just in case.
-
--Added a new enemy
---It will constantly chase the player at a slow speed.
+-Added enemy projectile prefab
+-Modified enemy script to make it constantly attack the player by shooting at it
+-Enemy behavior moved to a template file
