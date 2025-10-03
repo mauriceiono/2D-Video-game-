@@ -22,4 +22,20 @@ public static class GlobalFunctions
             return Vector2.zero;
         }
     }
+
+    public static Vector2 GetFakePlayer1Position()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("FakePlayer");
+        if (player != null)
+        {
+            Vector2 pos2D = player.transform.position;
+            // Return only the x and y components for 2D.
+            return new Vector2(pos2D.x, pos2D.y);
+        }
+        else
+        {
+            Debug.LogWarning("FakePlayer not found in the scene.");
+            return Vector2.zero;
+        }
+    }
 }

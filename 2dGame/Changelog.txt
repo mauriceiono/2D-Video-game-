@@ -1,3 +1,3 @@
--Added enemy projectile prefab
--Modified enemy script to make it constantly attack the player by shooting at it
--Enemy behavior moved to a template file
+-Added boomerang projectile
+--Uses a fake player to help test it
+-Enemies were turned into reusable prefabs

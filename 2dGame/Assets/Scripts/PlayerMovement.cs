@@ -71,6 +71,10 @@ public class PlayerMovement2D : MonoBehaviour
 
         //Move the player to the world position of the mouse cursor
         SetPlayerPosition(worldPos);
+
+        //Set the players position 4 units to the right of the mouse cursor
+
+        //SetPlayerPosition(new Vector2(worldPos.x + 4f, worldPos.y));
     }
 
     public void SetAttackSpeed(float newSpeed)
