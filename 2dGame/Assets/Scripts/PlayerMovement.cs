@@ -10,36 +10,71 @@ public class PlayerMovement2D : MonoBehaviour
     private Vector2 movementInput;
     private Camera mainCamera;
 
-    public float attackTimer;
+    public GameObject boomerangPrefab;
+
+    public GameObject basicProjectilePrefab;
+
+    //Set to default projectiles shoot interval because basic attack is the starting one
+    public float shootInterval = 0.6f;
+    public Transform shootPoint;
+
+    private float shootTimer = 0f;
+
+    //Basic attack is the default starting attack
+    private string attackType = "Basic";
+
+
+    //These will only get changed during balance patches
+    public float basicProjectileShootInterval = 0.3f;
+    public float boomerangShootInterval = 1f;
 
     //Activates on initialization
     private void Awake()
     {
-        attackTimer = 0f;
+        shootTimer = 0f;
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>();
+        attackType = "Basic";
+        SetShootInterval(basicProjectileShootInterval);
     }
 
     private void Update()
     {
         //Makes the player follow the mouse cursor for its movement
         playerMoving();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (attackType == "Basic")
+            {
+                attackType = "Boomerang";
+                SetShootInterval(boomerangShootInterval);
+            }
+            else if (attackType == "Boomerang")
+            {
+                attackType = "Basic";
+                SetShootInterval(basicProjectileShootInterval);
+            }
+        }
+
+        shootTimer += Time.deltaTime;
+
+        if (shootTimer >= shootInterval)
+        {
+            if (attackType == "Basic")
+            {
+                attack(basicProjectilePrefab);
+            }
+            else if (attackType == "Boomerang")
+            {
+                attack(boomerangPrefab);
+            }
+            shootTimer = 0f;
+        }
     }
 
     private void FixedUpdate()
     {
-        //Attack timer countdown
-        if (attackTimer <= 0f)
-        {
-            //Ready to attack
-            SetAttackSpeed(100f);
-            Object friendlyprojectile = Resources.Load("Projectiles/FriendlyProjectileBasic");
-            attack(friendlyprojectile);
-        }
-        else
-        {
-            attackTimer -= 1f;
-        }
+
     }
 
     //Gets the current position of the player in world coordinates.
@@ -77,24 +112,43 @@ public class PlayerMovement2D : MonoBehaviour
         //SetPlayerPosition(new Vector2(worldPos.x + 4f, worldPos.y));
     }
 
-    public void SetAttackSpeed(float newSpeed)
+    public void SetAttackTimer(float newSpeed)
     {
-        attackTimer = newSpeed;
+        shootTimer = newSpeed;
     }
 
-    public float GetAttackSpeed()
+    public float GetAttackTimer()
     {
-        return attackTimer;
+        return shootTimer;
     }
 
-    public void attack(Object projectileType)
+    public float GetShootInterval()
     {
-        // Offset distance in front of the player
-    float spawnOffset = 0.5f; // change if needed
-    Vector3 spawnPosition = transform.position + transform.up * spawnOffset;
+        return shootInterval;
+    }
 
-    // Spawn projectile at the offset position, spawn projectile in front of player model 
-    GameObject projectile = Instantiate(projectileType, spawnPosition, transform.rotation) as GameObject;
+    public void SetShootInterval(float newInterval)
+    {
+        shootInterval = newInterval;
+    }
 
+    public void attack(GameObject projectileType)
+    {
+        if (projectileType == null || shootPoint == null)
+        {
+            Debug.LogWarning("ProjectileType or ShootPoint not assigned.");
+            return;
+        }
+
+        Instantiate(projectileType, shootPoint.position, Quaternion.identity);
+    }
+    public void SetProjectileType(string newAttackType)
+    {
+        attackType = newAttackType;
+    }
+
+    public string GetProjectileType()
+    {
+        return attackType;
     }
 }

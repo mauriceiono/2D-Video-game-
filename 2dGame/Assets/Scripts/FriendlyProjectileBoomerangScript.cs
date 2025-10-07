@@ -39,7 +39,7 @@ public class FriendlyProjectileBoomerangScript : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerStartPos = GlobalFunctions.GetFakePlayer1Position();
+        playerStartPos = GlobalFunctions.GetPlayerPosition();
         Vector2 currentPos = rb.position;
         direction = (currentPos - playerStartPos).normalized;
         rb.linearVelocity = direction * speed;
@@ -47,7 +47,7 @@ public class FriendlyProjectileBoomerangScript : MonoBehaviour
 
     private void Update()
     {
-        Vector2 playerPos = GlobalFunctions.GetFakePlayer1Position();
+        Vector2 playerPos = GlobalFunctions.GetPlayerPosition();
         float distanceFromPlayer = Vector2.Distance(rb.position, playerPos);
 
         if (!returning && distanceFromPlayer >= maxDistance)
@@ -78,7 +78,7 @@ public class FriendlyProjectileBoomerangScript : MonoBehaviour
             }
             //Do not destroy projectile, so it pierces enemies
         }
-        else if (collision.CompareTag("FakePlayer") && returning)
+        else if (collision.CompareTag("Player") && returning)
         {
             // When boomerang returns to player, destroy it
             Destroy(gameObject);
@@ -88,7 +88,7 @@ public class FriendlyProjectileBoomerangScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         // Ensure destruction if boomerang stays overlapping player on return
-        if (collision.CompareTag("FakePlayer") && returning)
+        if (collision.CompareTag("Player") && returning)
         {
             Destroy(gameObject);
         }
