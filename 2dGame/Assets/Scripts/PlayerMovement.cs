@@ -11,6 +11,17 @@ public class PlayerMovement2D : MonoBehaviour
     private Camera mainCamera;
 
     public float attackTimer;
+    // Shield state
+    private bool hasShield = false;
+    // Visuals
+    private SpriteRenderer spriteRenderer;
+    public Sprite playerSprite; // assign in inspector or will attempt to load from Resources/Sprites/player
+    public Sprite playerWithShieldSprite; // assign in inspector or will attempt to load from Resources/Sprites/playerwithshield
+    private Sprite originalSprite;
+    // Optional: if an Animator is driving the sprite, it can overwrite sprite changes every frame.
+    // Set this true if you want the script to temporarily disable the Animator while shield is active.
+    public bool disableAnimatorWhenShielded = false;
+    private Animator animator;
 
     //Activates on initialization
     private void Awake()
@@ -18,6 +29,38 @@ public class PlayerMovement2D : MonoBehaviour
         attackTimer = 0f;
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>();
+
+        // Sprite renderer setup
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalSprite = spriteRenderer.sprite;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerMovement2D: no SpriteRenderer found on player GameObject.");
+        }
+
+        animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            // nothing by default; we only disable it if configured
+        }
+
+        // Try to auto-load sprites from Resources if not assigned in inspector
+        if (playerSprite == null)
+        {
+            playerSprite = Resources.Load<Sprite>("Sprites/player");
+            if (playerSprite == null)
+            {
+                // keep originalSprite as fallback
+            }
+        }
+
+        if (playerWithShieldSprite == null)
+        {
+            playerWithShieldSprite = Resources.Load<Sprite>("Sprites/playerwithshield");
+        }
     }
 
     private void Update()
@@ -96,5 +139,62 @@ public class PlayerMovement2D : MonoBehaviour
     // Spawn projectile at the offset position, spawn projectile in front of player model 
     GameObject projectile = Instantiate(projectileType, spawnPosition, transform.rotation) as GameObject;
 
+    }
+
+    // Shield control
+    public void GiveShield()
+    {
+        hasShield = true;
+        // You can add visual/audio feedback here
+        Debug.Log("Player: Shield granted");
+        // Swap to shield sprite if available
+        if (spriteRenderer == null)
+        {
+            Debug.LogWarning("GiveShield: no SpriteRenderer to change sprite on.");
+        }
+        else if (playerWithShieldSprite == null)
+        {
+            Debug.LogWarning("GiveShield: playerWithShieldSprite is not assigned and could not be loaded from Resources.");
+        }
+        else
+        {
+            spriteRenderer.sprite = playerWithShieldSprite;
+        }
+
+        // Optionally disable Animator to prevent it from overwriting the sprite each frame
+        if (disableAnimatorWhenShielded && animator != null)
+        {
+            animator.enabled = false;
+        }
+    }
+
+    public void RemoveShield()
+    {
+        hasShield = false;
+        Debug.Log("Player: Shield removed");
+        // Swap back to normal sprite
+        if (spriteRenderer == null)
+        {
+            Debug.LogWarning("RemoveShield: no SpriteRenderer to change sprite on.");
+        }
+        else if (playerSprite != null)
+        {
+            spriteRenderer.sprite = playerSprite;
+        }
+        else if (originalSprite != null)
+        {
+            spriteRenderer.sprite = originalSprite;
+        }
+
+        // Re-enable animator if we disabled it earlier
+        if (disableAnimatorWhenShielded && animator != null)
+        {
+            animator.enabled = true;
+        }
+    }
+
+    public bool HasShield()
+    {
+        return hasShield;
     }
 }
