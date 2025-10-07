@@ -65,7 +65,22 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Instantly kill the player by reloading the scene
+            // Check if the player has a shield
+            PlayerMovement2D player = other.GetComponent<PlayerMovement2D>();
+            if (player == null)
+            {
+                player = other.GetComponentInParent<PlayerMovement2D>();
+            }
+
+            if (player != null && player.HasShield())
+            {
+                // Consume the shield and destroy this enemy instead of killing the player
+                player.RemoveShield();
+                Destroy(gameObject);
+                return;
+            }
+
+            // No shield: instantly kill the player by reloading the scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
