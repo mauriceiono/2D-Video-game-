@@ -76,7 +76,22 @@ public class FriendlyProjectileBoomerangScript : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
+            else
+            {
+                //This exists because ChasingEnemy does not take damage from attacks otherwise.
+                //This is because ChasingEnemy does not have an Enemy component.
+                //Unsure of how to fix this.
+                //This workaround is also in the basic projectile script.
+                ChasingEnemy otherEnemy = collision.GetComponent<ChasingEnemy>();
+                if (otherEnemy != null)
+                {
+                    otherEnemy.TakeDamage(damage);
+                    Debug.Log("Hit chasing enemy with basic projectile for " + damage + " damage.");
+                }
+                
+            }
             //Do not destroy projectile, so it pierces enemies
+            Debug.Log("Hit enemy with boomerang for " + damage + " damage.");
         }
         else if (collision.CompareTag("FakePlayer") && returning)
         {
@@ -93,5 +108,15 @@ public class FriendlyProjectileBoomerangScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SetProjectileDamage(int newDamage)
+    {
+        damage = newDamage;
+    }
+    public int GetProjectileDamage()
+    {
+        return damage;
+    }
+
 }
     

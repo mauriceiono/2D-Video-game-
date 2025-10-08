@@ -1,3 +1,2 @@
--Added boomerang projectile
---Uses a fake player to help test it
--Enemies were turned into reusable prefabs
+-Added waves system
+--Some bug occurs with the chasing enemy, I am unsure how to fix it. It is explained in the projectile scripts.

@@ -11,7 +11,7 @@ public class FriendlyProjectileBasicScript : MonoBehaviour
     public float lifetime = 2f;
 
     //Damage it deals
-    public int damage = 10;
+    public int damage = 7;
 
     //Activates on initialization
     private void Awake()
@@ -65,9 +65,35 @@ public class FriendlyProjectileBasicScript : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
+            else
+            {
+                //This exists because ChasingEnemy does not take damage from attacks otherwise.
+                //This is because ChasingEnemy does not have an Enemy component.
+                //Unsure of how to fix this.
+                //This workaround is also in the boomerang projectile script.
+                ChasingEnemy otherEnemy = other.GetComponent<ChasingEnemy>();
+                if (otherEnemy != null)
+                {
+                    otherEnemy.TakeDamage(damage);
+                    Debug.Log("Hit chasing enemy with basic projectile for " + damage + " damage.");
+                }
+                
+            }
+
 
             // Destroy the projectile after hitting an enemy
             Destroy(gameObject, lifetime);
+
+            Debug.Log("Hit enemy with basic projectile for " + damage + " damage.");
         }
+
+    }
+    public void SetProjectileDamage(int newDamage)
+    {
+        damage = newDamage;
+    }
+    public int GetProjectileDamage()
+    {
+        return damage;
     }
 }

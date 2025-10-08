@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class ChasingEnemy : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public int health = 15;
+    public int health = 40;
 
     // Movement speed of the enemy chasing the player
     [SerializeField] private float chaseSpeed = 2f;
@@ -27,6 +27,8 @@ public class ChasingEnemy : MonoBehaviour
 
         // Move the enemy's Rigidbody2D to the new position
         rb.MovePosition(newPosition);
+
+        //Debug.Log("Health: " + health);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -39,8 +41,8 @@ public class ChasingEnemy : MonoBehaviour
 
         if (other.CompareTag("FriendlyProjectile"))
         {
-            // Take damage or destroy this enemy on hit by player's projectile
-            TakeDamage(1);
+            //Take damage or destroy this enemy on hit by player's projectile
+            Debug.Log("Health: " + health);
         }
     }
 

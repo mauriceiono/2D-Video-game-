@@ -178,5 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49997628be1caf4da318a4e4c58f361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChasingEnemy
-  health: 15
+  health: 40
   chaseSpeed: 2

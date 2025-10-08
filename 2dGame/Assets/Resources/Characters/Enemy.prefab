@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3486411801454467541}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a96ab5ea873d6c4d949890f9752dd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  health: 15
+  health: 20
   enemyProjectilePrefab: {fileID: 7331410268541585938, guid: f955ba07fc51f5648817781d1fd25ed7, type: 3}
   shootInterval: 2
 --- !u!61 &7992734592711397043
