@@ -482,6 +482,7 @@
 "Assets/Scripts/FriendlyProjectileBoomerangScript.cs"
 "Assets/Scripts/GlobalFunctions.cs"
 "Assets/Scripts/GlobalManager.cs"
+"Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/ShieldPowerUpMovement.cs"
 "Assets/Scripts/ShieldPowerUpScript.cs"
